@@ -89,40 +89,22 @@ Si completás la asignación principal, implementá codificación binaria en `sr
 npm test
 ```
 
-### Ejecutar Solo Pruebas de Asignación
-```bash
-npm test student-assignment
-```
-
 ### Modo Observación (Recomendado)
 ```bash
 npm run test:watch
 ```
 
-## Entregables de la Asignación
+### Ver Detalles Completos de las Pruebas
+```bash
+npm run test:verbose
+```
+
+## Entregables de la Tarea
 
 1. **`transaction-validator.ts` completado** con toda la lógica de validación implementada
-2. **Opcional: `binary-encoding.ts` completado** para puntos bonus
+2. **Opcional: `binary-encoding.ts` completado** para puntos extra
 3. **Todas las pruebas requeridas pasando**
 4. **Breve explicación escrita** (2-3 párrafos) de tu enfoque y cualquier desafío enfrentado
-
-## Desafíos Comunes y Soluciones
-
-### Desafío 1: Dependencias Circulares de Firma
-**Problema**: ¿Cómo firmás datos de transacción que incluyen firmas?
-**Solución**: Crear una versión de la transacción sin firmas para propósitos de firmado.
-
-### Desafío 2: Unicidad de Referencias UTXO
-**Problema**: ¿Cómo identificás UTXOs únicamente?
-**Solución**: Usar la combinación de ID de transacción e índice de salida.
-
-### Desafío 3: Verificación de Firma
-**Problema**: ¿Qué clave pública debe verificar qué firma?
-**Solución**: Cada firma de entrada debe ser verificada contra la clave pública del propietario del UTXO.
-
-### Desafío 4: Cálculos de Balance
-**Problema**: ¿Cómo manejás la precisión de punto flotante?
-**Solución**: Para esta asignación, el tipo number de JavaScript es suficiente. En producción, usar aritmética entera con unidades más pequeñas.
 
 ## Recursos Proporcionados
 
@@ -141,8 +123,8 @@ npm run test:watch
 
 ## Integridad Académica
 
-- Implementar la lógica central vos mismo antes de mirar la solución
-- Podés discutir conceptos con compañeros de clase pero escribir tu propio código
+- Implementar la lógica central vos mismo (intentar no usar AI, o lo mínimo posible)
+- Podés discutir conceptos con compañeros de clase, pero escribí tu propio código
 - Usar las utilidades proporcionadas y casos de prueba libremente
 - Citar cualquier recurso externo usado
 
@@ -154,14 +136,12 @@ Si terminás temprano y querés desafíos adicionales:
 2. **Multi-firma**: Soportar UTXOs que requieren múltiples firmas
 3. **Bloqueos de Tiempo**: Agregar restricciones de gasto basadas en tiempo
 4. **Árboles de Merkle**: Implementar verificación de transacciones usando pruebas de Merkle
-5. **Protocolo de Red**: Agregar transmisión peer-to-peer de transacciones
 
 ## Soporte
 
 - Revisar mensajes de error de pruebas cuidadosamente - proporcionan orientación específica
-- Usar el depurador para revisar paso a paso tu lógica de validación
+- Usar el debugger para revisar paso a paso tu lógica de validación
 - Verificar la implementación de referencia si estás trabado
 - Hacer preguntas sobre conceptos, no detalles específicos de implementación
 
 ¡Buena suerte con tu implementación!
-

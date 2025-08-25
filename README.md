@@ -1,6 +1,8 @@
 # UTXOs Simplificadas
 
-Esta tarea te desafía a implementar la lógica de validación central para un sistema de criptomonedas simplificado basado en UTXO (Unspent Transactions Output). En lugar de scripts de desbloqueo complejos, las transacciones se aseguran utilizando solamente **firmas digitales**.
+Esta tarea requiere implementar la lógica de validación central para un sistema de criptomonedas simplificado basado en UTXO (Unspent Transactions Output). En lugar de scripts de desbloqueo complejos, las transacciones se aseguran utilizando solamente **firmas digitales**.
+
+Las instrucciones de la tarea puede encontrarse en [ASSIGNMENT.md](./ASSIGNMENT.md)
 
 ### Objetivos de Aprendizaje
 
@@ -20,10 +22,15 @@ npm install
 
 2. Ejecutar pruebas para ver qué necesita ser implementado:
 ```bash
-npm test:assignment
+npm test
 ```
 
 3. Ejecutar pruebas en modo observación para retroalimentación continua:
 ```bash
-npm run test:assignment:watch
+npm run test:watch
+```
+
+4. Ver detalles completos de las pruebas:
+```bash
+npm run test:verbose
 ```

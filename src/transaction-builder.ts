@@ -1,8 +1,14 @@
 import { Transaction, TransactionInput, TransactionOutput, UTXO } from './types';
-import { CryptoUtils } from './utils/crypto';
+import { sign } from './utils/crypto';
 import { v4 as uuidv4 } from 'uuid';
 
 export class TransactionBuilder {
+  /**
+   * Create a new transaction
+   * @param {UTXO[]} inputs - The UTXOs to use as inputs
+   * @param {TransactionOutput[]} outputs - The outputs of the transaction
+   * @returns {Transaction} The new transaction
+   */
   static createTransaction(
     inputs: { utxo: UTXO; privateKey: string }[],
     outputs: TransactionOutput[]
@@ -18,10 +24,8 @@ export class TransactionBuilder {
     const unsignedTx = {
       id: transaction.id,
       inputs: inputs.map(input => ({
-        utxoRef: {
-          txId: input.utxo.txId,
-          outputIndex: input.utxo.outputIndex
-        }
+        utxoId: input.utxo.id,
+        owner: input.utxo.recipient
       })),
       outputs: transaction.outputs,
       timestamp: transaction.timestamp
@@ -31,12 +35,10 @@ export class TransactionBuilder {
 
     // Sign each input
     transaction.inputs = inputs.map(input => {
-      const signature = CryptoUtils.sign(transactionData, input.privateKey);
+      const signature = sign(transactionData, input.privateKey);
       return {
-        utxoRef: {
-          txId: input.utxo.txId,
-          outputIndex: input.utxo.outputIndex
-        },
+        utxoId: input.utxo.id,
+        owner: input.utxo.recipient,
         signature
       };
     });

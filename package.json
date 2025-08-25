@@ -5,11 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test:assignment": "jest src/__tests__/assignment.test.ts",
-    "test:assignment:watch": "jest --watch src/__tests__/assignment.test.ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "dev": "ts-node src/index.ts"
+    "test:verbose": "jest --verbose",
+    "dev": "ts-node src/index.ts",
+    "lint": "tsc --noEmit --strict && echo '✅ TypeScript compilation and strict checks passed'",
+    "lint:fix": "npm run lint",
+    "format": "echo 'Format check: Use your editor to format files according to .eslintrc.js rules'"
   },
   "keywords": [
     "blockchain",

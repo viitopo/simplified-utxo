@@ -12,3 +12,9 @@ node_modules
 
 # AIs
 .claude
+
+# Solution
+src/solution/*
+
+# Builds
+/dist
