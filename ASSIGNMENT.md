@@ -116,10 +116,57 @@ npm run test:verbose
 
 ## Pautas de Entrega
 
+### Proceso de Entrega con GitHub Classroom
+
+Esta tarea se gestiona a través de **GitHub Classroom**. Seguí estos pasos para entregar tu trabajo:
+
+1. **Aceptar la Asignación**: Hacé clic en el enlace de GitHub Classroom proporcionado por el profesor
+2. **Clonar tu Repositorio**: GitHub creará automáticamente un repositorio personal para vos
+3. **Desarrollar la Solución**: Implementá la lógica de validación en tu repositorio local
+4. **Hacer Commits Regulares**: Guardá tu progreso con commits descriptivos
+5. **Crear Pull Request**: 
+   - Una vez completada tu implementación, creá un **Pull Request** en tu repositorio
+   - El PR debe incluir todos tus cambios de la rama `main` o `master`
+   - Agregá una descripción detallada de tu implementación
+6. **Compartir el Enlace**: Envía el enlace del Pull Request al profesor por el medio indicado
+
+### Estructura del Pull Request
+
+Tu Pull Request debe incluir:
+- **Título descriptivo**: ej. "Implementación completa de validación UTXO"
+- **Descripción detallada** con:
+  - Resumen de qué implementaste
+  - Desafíos enfrentados y cómo los resolviste
+  - Cualquier decisión de diseño importante
+  - Instrucciones para probar tu código
+
+### Ejemplo de Descripción de PR:
+
+```markdown
+## Implementación de Validación UTXO
+
+### Funcionalidades Implementadas
+- ✅ Verificación de existencia de UTXO
+- ✅ Validación de balance de transacciones  
+- ✅ Verificación de firmas digitales
+- ✅ Prevención de doble gasto
+- ✅ [BONUS] Codificación binaria (si aplicable)
+
+### Desafíos y Soluciones
+- Explica cualquier problema técnico que enfrentaste
+- Describe cómo lo resolviste
+
+### Pruebas
+- Todas las pruebas requeridas pasan: ✅
+- Ejecutar con: `npm test`
+```
+
+### Criterios de Calidad
+
 1. **Calidad de Código**: Escribir código limpio y legible con nombres de variables significativos
 2. **Comentarios**: Explicar lógica compleja y pasos de validación
 3. **Pruebas**: Asegurar que todas las pruebas requeridas pasen antes de la entrega
-4. **Documentación**: Incluir breve explicación de tu enfoque
+4. **Documentación**: Incluir breve explicación de tu enfoque en el PR
 
 ## Integridad Académica
 
