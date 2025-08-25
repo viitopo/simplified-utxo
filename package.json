@@ -1,0 +1,35 @@
+{
+  "name": "simplified-utxo-assignment",
+  "version": "1.0.0",
+  "description": "Blockchain course assignment: Simplified UTXO implementation",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test:assignment": "jest src/__tests__/assignment.test.ts",
+    "test:assignment:watch": "jest --watch src/__tests__/assignment.test.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [
+    "blockchain",
+    "utxo",
+    "cryptocurrency",
+    "assignment"
+  ],
+  "author": "Blockchain Course Instructor",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/uuid": "^10.0.0",
+    "crypto": "^1.0.1",
+    "uuid": "^11.1.0"
+  }
+}
