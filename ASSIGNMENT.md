@@ -6,7 +6,7 @@ En esta tarea, deberás a implementar la lógica de validación central para un 
 
 ## Objetivos de Aprendizaje
 
-Al completar esta asignación, vas a:
+Al completar esta tarea, vas a:
 
 1. **Comprender el Modelo UTXO**: Aprender cómo funcionan las transacciones estilo Bitcoin usando el modelo UTXO
 2. **Implementar Validación de Transacciones**: Construir la lógica central que asegura la integridad de las transacciones
@@ -14,7 +14,7 @@ Al completar esta asignación, vas a:
 4. **Gestionar Transiciones de Estado**: Rastrear cómo el procesamiento de transacciones cambia el estado del sistema
 5. **Optimizar Representación de Datos**: Explorar codificación binaria para transacciones eficientes en espacio (bonus)
 
-## Tareas de la Asignación
+## Tareas
 
 ### Tarea 1: Implementar Validación de Transacciones (Requerido)
 
@@ -55,7 +55,7 @@ const isValid = CryptoUtils.verify(transactionData, input.signature, utxo.owner)
 
 ### Tarea 2: Desafío de Codificación Binaria (Bonus)
 
-Si completás la asignación principal, implementá codificación binaria en `src/utils/binary-encoding.ts`:
+Si completás la tarea principal, implementá codificación binaria en `src/utils/binary-encoding.ts`:
 
 1. **Método Encode**: Convertir objetos Transaction a representación binaria compacta
 2. **Método Decode**: Reconstruir objetos Transaction desde datos binarios
@@ -68,7 +68,9 @@ Si completás la asignación principal, implementá codificación binaria en `sr
 
 ## Criterios de Calificación
 
-### Requerido (80% de la calificación):
+Esta tarea vale **5 puntos** del total del curso.
+
+### Requerido:
 - [ ] Todos los UTXOs de entrada existen y no están gastados
 - [ ] El monto total de entrada iguala al monto total de salida
 - [ ] Todas las firmas son válidas
@@ -76,7 +78,7 @@ Si completás la asignación principal, implementá codificación binaria en `sr
 - [ ] Todas las pruebas requeridas pasan
 - [ ] El código está limpio y bien comentado
 
-### Bonus (20% adicional):
+### Bonus (no cuenta para la calificación):
 - [ ] Codificación/decodificación binaria implementada correctamente
 - [ ] Ahorros significativos de espacio demostrados
 - [ ] Casos extremos adicionales manejados
@@ -120,7 +122,7 @@ npm run test:verbose
 
 Esta tarea se gestiona a través de **GitHub Classroom**. Seguí estos pasos para entregar tu trabajo:
 
-1. **Aceptar la Asignación**: Hacé clic en el enlace de GitHub Classroom proporcionado por el profesor
+1. **Aceptar la Tarea**: Hacé clic en el enlace de GitHub Classroom proporcionado por el profesor
 2. **Clonar tu Repositorio**: GitHub creará automáticamente un repositorio personal para vos
 3. **Desarrollar la Solución**: Implementá la lógica de validación en tu repositorio local
 4. **Hacer Commits Regulares**: Guardá tu progreso con commits descriptivos
