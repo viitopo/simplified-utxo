@@ -1,4 +1,4 @@
-import { Transaction, TransactionInput } from './types';
+import {Transaction, TransactionInput, UTXO} from './types';
 import { UTXOPoolManager } from './utxo-pool';
 import { verify } from './utils/crypto';
 import {
@@ -18,11 +18,63 @@ export class TransactionValidator {
    */
   validateTransaction(transaction: Transaction): ValidationResult {
     const errors: ValidationError[] = [];
+    
+      let datosTransaccion = this.createTransactionDataForSigning_(transaction);
 
-    // STUDENT ASSIGNMENT: Implement the validation logic above
-    // Remove this line and implement the actual validation
-    throw new Error('Transaction validation not implemented - this is your assignment!');
+      let inputs = transaction.inputs;
+      let outputs = transaction.outputs;
+      
+      let sumaImputs = 0;
+      let sumaOutputs = 0;
+      
+      let utxoInputs : UTXO[]  = [] ;
+      
+      inputs.forEach(input => {
+          const utxo = this.utxoPool.getUTXO(input.utxoId.txId, input.utxoId.outputIndex);
+          
+          let utxoDuplicado = false;
 
+          if (!utxo) {
+              let error = createValidationError("UTXO_NOT_FOUND", `UTXO not found: ${input.utxoId.txId}:${input.utxoId.outputIndex}`)
+              errors.push(error);
+          }
+          else {
+              sumaImputs += utxo.amount;
+              
+              utxoDuplicado = utxoInputs.includes(utxo);
+
+              if(utxoDuplicado){
+                  let error = createValidationError("DOUBLE_SPENDING", `UTXO already used: ${utxo?.id}`)
+                  errors.push(error);
+              }
+              else utxoInputs.push(utxo);
+
+              const firmaPropietarioValida = verify(datosTransaccion, input.signature, utxo.recipient);
+
+              if(!firmaPropietarioValida){
+                  let error = createValidationError("INVALID_SIGNATURE", `UTXO signature does not match the owner: ${input.signature}:${input.owner}`)
+                  errors.push(error);
+              }
+          }          
+      })
+      
+      outputs.forEach(output => {
+          sumaOutputs += output.amount;
+          
+          let valorCero = output.amount == 0;
+          let valorNegativo = output.amount < 0;
+          
+          if(valorCero || valorNegativo){
+              let error = createValidationError("NEGATIVE_AMOUNT", `Amount of output transaction is cero`)
+              errors.push(error);
+          }
+      })
+
+      if (sumaImputs != sumaOutputs) {
+          let error = createValidationError("AMOUNT_MISMATCH", `Balance not equal: ${sumaImputs}:${sumaOutputs}`)
+          errors.push(error);
+      }
+      
     return {
       valid: errors.length === 0,
       errors
